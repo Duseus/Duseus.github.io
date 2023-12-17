@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
+  <meta content="我的音乐" name="description">
+  <meta content="" name="keywords">
+  <title>我的歌单 - 山川行貉</title>
+  <link rel="icon" type="image/png" href="https://tabbyvps.oss-cn-hongkong.aliyuncs.com/2022/02/10/f94c31e7572c4.png">
+  <link rel="icon" type="image/png" sizes="144x144" href="https://tabbyvps.oss-cn-hongkong.aliyuncs.com/2022/02/10/f94c31e7572c4.png">
+  <link rel="apple-touch-icon" type="image/png" href="https://tabbyvps.oss-cn-hongkong.aliyuncs.com/2022/02/10/f94c31e7572c4.png">
+  <style>
+    @font-face {
+      font-family: 'SourceHanSerifCNBold';
+      src: url('assets/fonts/SourceHanSerifCNBold.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    html,body {
+      height: 100%;
+      width: 100%;
+    }
+    html {
+      font-size: 26.6666vw;
+    }
+    body {
+      font-size: 16px;
+      margin: 0;
+      font-family: -apple-system,system-ui,sans-serif;
+      font-weight: 300;
+      letter-spacing: 1px;
+      color: #03081A;
+      background-color: #f5f6fa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    a,a:visited {
+      color: #03081A;
+      text-decoration: none;
+    }
+    h1 {
+      margin: 0;
+      padding: .2rem .3rem;
+      display: flex;
+      align-items: center;
+      font-size: .36rem;
+    }
+    h1 i {
+      width: .72rem;
+      height: .72rem;
+      background-image: url("https://tabbyvps.oss-cn-hongkong.aliyuncs.com/2022/02/10/f94c31e7572c4.png");
+      background-size: cover;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+    }
+    h1 span {
+      background-size: auto 90%;
+      background-repeat: no-repeat;
+      color: black;
+    }
+   
+    .okr {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: .3rem;
+      align-self: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: calc(100% - .3rem * 2);
+      max-width: 960px;
+    }
+    .okr-item {
+      position: relative;
+      display: flex;
+      padding-top: 100%;
+      overflow: hidden;
+      border-radius: 6px;
+      background-color: #fff;
+      cursor: pointer;
+    }
+    .okr-item:hover {
+      box-shadow: 0 6px 15px rgb(171 174 209 / 30%);
+    }
+    .okr-item:nth-child(1):hover {
+      background-color: #ffebef;
+    }
+    .okr-item:nth-child(2):hover {
+      background-color: #fbf3d9;
+    }
+    .okr-item:nth-child(3):hover {
+      background-color: #deffef;
+    }
+    .okr-item:nth-child(4):hover {
+      background-color: #dcfbff;
+    }
+    .okr-item:nth-child(5):hover {
+      background-color: #f4e4ff;
+    }
+    .okr-item:nth-child(6):hover {
+      background-color: #f7ffe0;
+    }
+    .okr-name,.okr-detail {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: transform .2s ease-out;
+      font-size:.8rem;
+    }
+    .okr-name {
+      margin: 0;
+      
+      font-family: 'SourceHanSerifCNBold';
+      font-weight: normal;
+      transform: translate3d(0,0,0);
+    }
+    .okr-item:nth-child(1):hover .okr-name {
+      transform: translate3d(100%,0,0);
+    }
+    .okr-item:nth-child(2):hover .okr-name {
+      transform: translate3d(0,100%,0);
+    }
+    .okr-item:nth-child(3):hover .okr-name {
+      transform: translate3d(-100%,0,0);
+    }
+    .okr-item:nth-child(4):hover .okr-name {
+      transform: translate3d(100%,0,0);
+    }
+    .okr-item:nth-child(5):hover .okr-name {
+      transform: translate3d(0,-100%,0);
+    }
+    .okr-item:nth-child(6):hover .okr-name {
+      transform: translate3d(-100%,0,0);
+    }
+    /* okr-detail */
+    .okr-detail {
+      margin: 0;
+      padding: 0 .2rem;
+      font-size: .16rem;
+      text-align: center;
+    }
+    .okr-item:nth-child(1) .okr-detail {
+      transform: translate3d(-100%,0,0);
+    }
+    .okr-item:nth-child(2) .okr-detail {
+      transform: translate3d(0,-100%,0);
+    }
+    .okr-item:nth-child(3) .okr-detail {
+      transform: translate3d(100%,0,0);
+    }
+    .okr-item:nth-child(4) .okr-detail {
+      transform: translate3d(-100%,0,0);
+    }
+    .okr-item:nth-child(5) .okr-detail {
+      transform: translate3d(0,100%,0);
+    }
+    .okr-item:nth-child(6) .okr-detail {
+      transform: translate3d(100%,0,0);
+    }
+    .okr-item:hover .okr-detail,
+    .okr-item:active .okr-detail {
+      transform: translate3d(0,0,0);
+    }
+    .okr-detail img {
+      display: none;
+    }
+    .okr-detail::before {
+      content: "";
+      width: 1.2rem;
+      height: 1.2rem;
+      margin: 0 0 .1rem;
+      background-size: cover;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+    }
+    .okr-item:nth-child(1) .okr-detail::before {
+      background-image: url(https://tabbyvps.oss-cn-hongkong.aliyuncs.com/2023/02/23/63f73b7ac6ba5.png);
+    }
+    .okr-item:nth-child(2) .okr-detail::before {
+      background-image: url(https://tabbyvps.oss-cn-hongkong.aliyuncs.com/2023/02/23/63f73b7ac6ba5.png);
+    }
+    .okr-item:nth-child(3) .okr-detail::before {
+      background-image: url(https://tabbyvps.oss-cn-hongkong.aliyuncs.com/2023/02/23/63f73b7ac6ba5.png);
+    }
+    .okr-item:nth-child(4) .okr-detail::before {
+      background-image: url(https://tabbyvps.oss-cn-hongkong.aliyuncs.com/2023/02/23/63f73caaeecfd.png);
+    }
+    .okr-item:nth-child(5) .okr-detail::before {
+      background-image: url(https://tabbyvps.oss-cn-hongkong.aliyuncs.com/2023/02/23/63f73caaeecfd.png);
+    }
+    .okr-item:nth-child(6) .okr-detail::before {
+      background-image: url(https://tabbyvps.oss-cn-hongkong.aliyuncs.com/2023/02/23/63f73b7ac6ba5.png);
+    }
+    footer {
+      font-size: 12px;
+      padding: 20px 30px;
+    }
+    @media screen and (max-width: 750px) {
+      .okr {
+        grid-template-columns: 1fr;
+      }
+      .okr-item {
+        padding-top: 75%;
+      }
+    }
+    @media screen and (min-width: 750px) {
+      html {
+        font-size: 100px;
+      }
+    }
+    @media screen and (min-width: 1440px) {
+      html {
+        font-size: 133px;
+      }
+      .okr {
+        width: 1280px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+<h1><span>我的&nbsp</span><i></i><span>&nbsp歌单</span></h1>
+<ul class="okr">
+  <li class="okr-item">
+    <a href="https://scxho.cn/music/?id=4908223862&server=netease"><h2 class="okr-name">常听</h2>
+    <p class="okr-detail"><img src="https://tabbyvps.oss-cn-hongkong.aliyuncs.com/2023/02/23/63f73b7ac6ba5.png">「未闻蝉鸣而夏已过」</p></a>
+  </li>
+  <li class="okr-item">
+    <a href="https://scxho.cn/music/?id=7859804780&server=netease"><h2 class="okr-name">年度</h2>
+    <p class="okr-detail"><img src="https://tabbyvps.oss-cn-hongkong.aliyuncs.com/2023/02/23/63f73b7ac6ba5.png">「2022 年度歌单」</p></a>
+  </li>
+  <li class="okr-item">
+    <a href="https://scxho.cn/music/?id=6679380948&server=netease"><h2 class="okr-name">旋律</h2>
+    <p class="okr-detail"><img src="https://tabbyvps.oss-cn-hongkong.aliyuncs.com/2023/02/23/63f73b7ac6ba5.png">「海与山风和月」</p></a>
+  </li>
+  <li class="okr-item">
+    <a href="https://scxho.cn/music/?id=2927285323&server=tencent"><h2 class="okr-name">回忆</h2>
+    <p class="okr-detail"><img src="https://tabbyvps.oss-cn-hongkong.aliyuncs.com/2023/02/23/63f73caaeecfd.png">「绿毛水怪」</p></a>
+  </li>
+  <li class="okr-item">
+    <a href="https://scxho.cn/music/?id=2789290342&server=tencent"><h2 class="okr-name">收藏</h2>
+    <p class="okr-detail"><img src="https://tabbyvps.oss-cn-hongkong.aliyuncs.com/2023/02/23/63f73caaeecfd.png">「月上邮差」</p></a>
+  </li>
+  <li class="okr-item">
+    <a href="https://scxho.cn/music/?id=6827254012&server=netease"><h2 class="okr-name">热歌</h2>
+    <p class="okr-detail"><img src="https://tabbyvps.oss-cn-hongkong.aliyuncs.com/2023/02/23/63f73b7ac6ba5.png">「那时机器爱黄昏」</p></a>
+  </li>
+</ul>
+<footer>
+  © 2023 「<a href="https://scxho.cn">山川行貉</a>」<a style="color:red" href="https://music.scxho.cn">点我随机</a>
+</footer>
+</body></html>
